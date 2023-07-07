@@ -8,24 +8,24 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import AudioUploader from './AudioUploader';
 
-const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FB_API_KEY,
-  authDomain: import.meta.env.VITE_FB_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FB_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FB_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FB_MESSAGE_SENDER_ID,
-  appId: import.meta.env.VITE_FB_APP_ID
-};
+// const firebaseConfig = {
+//   apiKey: import.meta.env.VITE_FB_API_KEY,
+//   authDomain: import.meta.env.VITE_FB_AUTH_DOMAIN,
+//   projectId: import.meta.env.VITE_FB_PROJECT_ID,
+//   storageBucket: import.meta.env.VITE_FB_STORAGE_BUCKET,
+//   messagingSenderId: import.meta.env.VITE_FB_MESSAGE_SENDER_ID,
+//   appId: import.meta.env.VITE_FB_APP_ID
+// };
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+// const app = initializeApp(firebaseConfig);
+// const db = getFirestore(app);
 
 function App() {
 
   const [soundObj, setSoundObj] = useState();
   const [textToSpeech, setTextToSpeech] = useState("")
 
-  const apiUri = import.meta.env.VITE_API_URI
+  const apiUri = "https://flasktalkbackend-tomtarpey.b4a.run/";
 
 
 
@@ -40,8 +40,8 @@ function App() {
 
 
   
-      setDoc(doc(db, "speaq", inputText), {base64audio})
-      .catch((err) => { console.log("error", err) });
+      // setDoc(doc(db, "speaq", inputText), {base64audio})
+      // .catch((err) => { console.log("error", err) });
   })
 
 

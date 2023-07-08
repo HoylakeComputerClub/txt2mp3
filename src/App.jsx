@@ -7,6 +7,7 @@ import './App.css'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import AudioUploader from './AudioUploader';
+import TextToMp3 from './TextToMp3';
 
 // const firebaseConfig = {
 //   apiKey: import.meta.env.VITE_FB_API_KEY,
@@ -48,16 +49,8 @@ function App() {
   }
   return (
     <>
-    <div>
-      <h1>Text to MP3</h1>
-      <p>{soundObj? <audio controls>
-        <source src={"data:audio/mp3;base64," + soundObj} />
-      </audio>: "Type in some text below to turn in to audio"}</p>
-      <input id="audioText" onChange={(e) => {setTextToSpeech(e.target.value);}}/>
-      <button onClick={() => convertText(textToSpeech, "Joey")} >Give Me Audio</button>
-      <button onClick={() => {window.location.href = "/"}}>Reset</button>
-    </div>
-    <AudioUploader apiUri={apiUri}/>
+      <TextToMp3 convertText={convertText} soundObj={soundObj} />
+      <AudioUploader apiUri={apiUri}/>
     </>
   )
 }
